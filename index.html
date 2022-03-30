@@ -6,55 +6,44 @@
   <body>
     import java.util.Scanner;<br>
 <br>
-　　public class Main <br>
-　　{<br>
-　　    public static void main(String[] args) <br>
-	      {<br>
+　 　public class Main {<br>
+　　    public static void main(String[] args) {<br>
 	    	Scanner sc = new Scanner(System.in);<br>
     <br>
 		    int n = sc.nextInt(); <br>
 		    int k = sc.nextInt();<br>
-		    int[] a = new int[n + 2];<br>
-		    int[] b = new int[n + 2];<br>
-		    int[][] dp = new int[n + 2][2];<br>
+		    int[] a = new int[n + 1];<br>
+		    int[] b = new int[n + 1];<br>
+		    int[][] dp = new int[n + 1][2];<br>
     <br>
-		    for(int i = 1; i <= n; i++) <br>
-        {<br>
+		    for(int i = 1; i <= n; i++){<br>
 			    a[i] = sc.nextInt();<br>
 	    	}<br>
-		    for(int i = 1; i <= n; i++) <br>
-        {<br>
+		    for(int i = 1; i <= n; i++){<br>
 		    	b[i] = sc.nextInt();<br>
 		    }<br>
     <br>
 	    	dp[1][0] = 1; dp[1][1] = 1;<br>
     <br>
-		    for(int i = 2; i <= n; i++) <br>
-		    {<br>
-		    	if(dp[i-1][0] == 1 && Math.abs(a[i] - a[i-1]) <= k) <br>
-		    	{<br>
+		    for(int i = 2; i <= n; i++){<br>
+		    	if(dp[i-1][0] == 1 && Math.abs(a[i] - a[i-1]) <= k){<br>
 			    	dp[i][0] = 1;<br>
 			    }<br>
-			    if(dp[i-1][1] == 1 && Math.abs(a[i] - b[i-1]) <= k) <br>
-		    	{<br>
+			    if(dp[i-1][1] == 1 && Math.abs(a[i] - b[i-1]) <= k){<br>
 		    		dp[i][0] = 1;<br>
 		    	}<br>
-		    	if(dp[i-1][0] == 1 && Math.abs(b[i] - a[i-1]) <= k) <br>
-		    	{<br>
+		    	if(dp[i-1][0] == 1 && Math.abs(b[i] - a[i-1]) <= k){<br>
 		    		dp[i][1] = 1;<br>
 		    	}<br>
-		    	if(dp[i-1][1] == 1 && Math.abs(b[i] - b[i-1]) <= k) {<br>
+		    	if(dp[i-1][1] == 1 && Math.abs(b[i] - b[i-1]) <= k){<br>
 		    		dp[i][1] = 1;<br>
-		  	}<br>
+		  	  }<br>
           <br>
 	    	}<br>
        <br>
-	    	if(dp[n][1] == 1 || dp[n][0] == 1) <br>
-	    	{<br>
+	    	if(dp[n][1] == 1 || dp[n][0] == 1){<br>
 	    		System.out.println("Yes");<br>
-	    	} <br>
-	    	else <br>
-	    	{<br>
+	    	}else{<br>
 		    	System.out.println("No");<br>
 	    	}<br>
         <br>
