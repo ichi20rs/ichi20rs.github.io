@@ -1,71 +1,17 @@
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <title>仮置き場</title>
-  </head>
-  <body>
-  
+
+<head>
+	<meta charset='utf-8'>
+	<title>仮置き場</title>
+</head>
+
+<body>
+
 	<pre><code>
-import java.util.Scanner;
 
-public class Main 
-{
-	public static void main(String[] args) 
-	{
-		Scanner sc = new Scanner(System.in);
+</code></pre>
 
-		int n = sc.nextInt(); 
-		int k = sc.nextInt();
-		int[] a = new int[n + 1];
-		int[] b = new int[n + 1];
-		int[][] dp = new int[n + 1][2];
 
-		for(int i = 1; i <= n; i++) 
-		{
-			a[i] = sc.nextInt();
-		}
-		for(int i = 1; i <= n; i++) 
-		{
-			b[i] = sc.nextInt();
-		}
+</body>
 
-		dp[1][0] = 1; dp[1][1] = 1;
-
-		for(int i = 2; i <= n; i++) 
-		{
-			if(dp[i - 1][0] == 1 && Math.abs(a[i] - a[i - 1]) <= k) 
-			{
-				dp[i][0] = 1;
-			}
-			if(dp[i - 1][1] == 1 && Math.abs(a[i] - b[i - 1]) <= k) 
-			{
-				dp[i][0] = 1;
-			}
-			if(dp[i - 1][0] == 1 && Math.abs(b[i] - a[i - 1]) <= k) 
-			{
-				dp[i][1] = 1;
-			}
-			if(dp[i - 1][1] == 1 && Math.abs(b[i] - b[i - 1]) <= k)
-			{
-				dp[i][1] = 1;
-			}
-
-		}
-
-		if(dp[n][0] == 1 || dp[n][1] == 1) 
-		{
-			System.out.println("Yes");
-		} 
-		else 
-		{
-			System.out.println("No");
-		}
-
-	}
-}
-
-</code></pre>>
-
-    
-  </body>
 </html>
